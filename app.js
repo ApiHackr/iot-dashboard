@@ -16,4 +16,16 @@ document.getElementById("device-form").addEventListener("submit", e => {
     devices.push(device);
     localeStorage.setItem("device", JSON.stringify(devices));
     renderDevices();
-})
+});
+
+function renderDevices() {
+    const allDevices = JSON.parse(localStorage.getItem("devices")) || [];
+    const searchTerm = document.getElementById("search-input").value.toLowerCase();
+
+    const filteredDevices = allDevices.filter(devices =>
+        device.id.toLowerCase().includes(searchTerm) ||
+        device.location?.toLowerCase().includes(searchTerm)
+    );
+
+
+}
