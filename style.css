@@ -12,3 +12,15 @@ body {
     margin: 1.25rem auto;
     padding: 0 1.25rem;
 }
+
+.device-form {
+    margin-bottom: 1.5rem;
+    display: grid;
+    gap: .625rem
+}
+
+input,
+select,
+button {
+    padding: .5rem;
+}
