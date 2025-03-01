@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Dachboard</title>
+</head>
+<body>
+    <h1>Meine IoT-Geräte</h1>
+   
+    <!-- Geräteregistrierungsformular -->
+    <form id="deviceForm">
+        <input type="text" id="deviceId" placeholder="Geräte-ID" required>
+        <select id="sensorType">
+            <option value="temperature">Temperatur</option>
+            <option value="motion">Bewegung</option>
+            <option value="energy">Energie</option>
+        </select>
+        <input type="text" id="location" placeholder="Standort">
+        <input type="text" id="apiEndpoint" placeholder="API-URL">
+        <button type="submit">Gerät hinzufügen</button>
+    </form>
+
+    <!-- Suche & Geräteliste -->
+    <input type="text" id="searchInput" placeholder="Suche nach Geräten...">
+    <div id="deviceList"></div>
+    <div id="paginationControls"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
