@@ -35,3 +35,18 @@ button {
     margin-bottom: 10px;
     border-radius: 8px;
 }
+
+.pagination-controls {
+    margin-top: 20px;
+}
+
+.pagination-controls button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pagination-controls button.active {
+    background: #007bff;
+    color: #fff;
+}
