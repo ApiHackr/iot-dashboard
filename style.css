@@ -24,3 +24,7 @@ select,
 button {
     padding: .5rem;
 }
+
+.device-list {
+    margin-top: .5rem;
+}
