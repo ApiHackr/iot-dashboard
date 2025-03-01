@@ -27,5 +27,18 @@ function renderDevices() {
         device.location?.toLowerCase().includes(searchTerm)
     );
 
+    const startIndex = (currentPage - 1) * DEVICES_PER_PAGE;
+    const paginatedDevices = filteredDevices.slice(startIndex, startIndex + DEVICES_PER_PAGE);
 
+    document.getElementById("devices-list").innerHTML = paginatedDevices.map(devices => `
+        <div class="device-card">
+            <h3>${device.id}</h3>
+            <p>Typ: ${device.type}</p>
+            <p>Standort: ${device.location || "Nicht angegeben"}</p>
+            <button onclick="toggleDevice('${device.id}')">
+                ${device.isActive ? 'Deaktivieren' : 'Aktivieren'}
+            </button>
+        </div>
+    `).join("");
+    renderPaginationControls(filteredDevices.length);
 }
