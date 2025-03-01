@@ -42,3 +42,29 @@ function renderDevices() {
     `).join("");
     renderPaginationControls(filteredDevices.length);
 }
+
+function renderPaginationControls(totalDevices) {
+    const totalPages = Math.ceil(totalDevices / DEVICES_PER_PAGE);
+    let buttons = '';
+    for (let i = 1; i <= totalPages; i++) {
+        buttons += `
+            <button ${i === currentPage ? 'class="active"' : ''} 
+                onclick="currentPage = ${i}; renderDevices()">
+                ${i}
+            </button>
+        `;
+    }
+    document.getElementById('paginationControls').innerHTML = buttons;
+}
+
+// Gerät aktivieren/deaktivieren
+function toggleDevice(deviceId) {
+    const devices = JSON.parse(localStorage.getItem('devices'));
+    const device = devices.find(d => d.id === deviceId);
+    device.isActive = !device.isActive;
+    localStorage.setItem('devices', JSON.stringify(devices));
+    renderDevices();
+}
+
+// Initiale Darstellung
+renderDevices();
