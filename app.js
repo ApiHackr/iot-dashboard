@@ -14,7 +14,7 @@ document.getElementById("device-form").addEventListener("submit", e => {
     };
     const devices = JSON.parse(localStorage.getItem("device")) || [];
     devices.push(device);
-    localeStorage.setItem("device", JSON.stringify(devices));
+    localStorage.setItem("device", JSON.stringify(devices));
     renderDevices();
 });
 
@@ -30,7 +30,7 @@ function renderDevices() {
     const startIndex = (currentPage - 1) * DEVICES_PER_PAGE;
     const paginatedDevices = filteredDevices.slice(startIndex, startIndex + DEVICES_PER_PAGE);
 
-    document.getElementById("devices-list").innerHTML = paginatedDevices.map(devices => `
+    document.getElementById("device-list").innerHTML = paginatedDevices.map(devices => `
         <div class="device-card">
             <h3>${device.id}</h3>
             <p>Typ: ${device.type}</p>
@@ -54,7 +54,7 @@ function renderPaginationControls(totalDevices) {
             </button>
         `;
     }
-    document.getElementById('paginationControls').innerHTML = buttons;
+    document.getElementById('pagination-controls').innerHTML = buttons;
 }
 
 // Gerät aktivieren/deaktivieren
