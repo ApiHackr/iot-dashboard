@@ -3,6 +3,7 @@
 let currentPage = 1;
 const DEVICES_PER_PAGE = 5;
 
+// Save device
 document.getElementById("device-form").addEventListener("submit", e => {
     e.preventDefault();
     const device = {
@@ -18,18 +19,28 @@ document.getElementById("device-form").addEventListener("submit", e => {
     renderDevices();
 });
 
+// search function
+document.getElementById('search-input').addEventListener('input', (e) => {
+    currentPage = 1; // Back to the first page for new search neuer Suche
+    renderDevices();
+});
+
+// render list of devices
 function renderDevices() {
     const allDevices = JSON.parse(localStorage.getItem("devices")) || [];
     const searchTerm = document.getElementById("search-input").value.toLowerCase();
 
+    // Filtering
     const filteredDevices = allDevices.filter(devices =>
         device.id.toLowerCase().includes(searchTerm) ||
         device.location?.toLowerCase().includes(searchTerm)
     );
 
+    // Pagination
     const startIndex = (currentPage - 1) * DEVICES_PER_PAGE;
     const paginatedDevices = filteredDevices.slice(startIndex, startIndex + DEVICES_PER_PAGE);
 
+    // Update UI
     document.getElementById("device-list").innerHTML = paginatedDevices.map(devices => `
         <div class="device-card">
             <h3>${device.id}</h3>
@@ -43,6 +54,7 @@ function renderDevices() {
     renderPaginationControls(filteredDevices.length);
 }
 
+// Pagination buttons
 function renderPaginationControls(totalDevices) {
     const totalPages = Math.ceil(totalDevices / DEVICES_PER_PAGE);
     let buttons = '';
@@ -57,7 +69,7 @@ function renderPaginationControls(totalDevices) {
     document.getElementById('pagination-controls').innerHTML = buttons;
 }
 
-// Gerät aktivieren/deaktivieren
+// Activate/deactivate device
 function toggleDevice(deviceId) {
     const devices = JSON.parse(localStorage.getItem('devices'));
     const device = devices.find(d => d.id === deviceId);
@@ -66,5 +78,5 @@ function toggleDevice(deviceId) {
     renderDevices();
 }
 
-// Initiale Darstellung
+// Initial view
 renderDevices();
