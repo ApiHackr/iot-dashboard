@@ -10,23 +10,23 @@
 </head>
 
 <body>
-    <h1>Meine IoT-Geräte</h1>
+    <h1>My IoT devices</h1>
 
-    <!-- Geräteregistrierungsformular -->
+    <!-- Device registration form -->
     <form id="device-form" class="device-form">
-        <input type="text" id="device-id" class="device-id" placeholder="Geräte-ID" required>
+        <input type="text" id="device-id" class="device-id" placeholder="Device ID" required>
         <select id="sensor-type" class="sensor-type">
-            <option value="temperature">Temperatur</option>
-            <option value="motion">Bewegung</option>
-            <option value="energy">Energie</option>
+            <option value="temperature">Temperature</option>
+            <option value="motion">Motion</option>
+            <option value="energy">Energy</option>
         </select>
-        <input type="text" id="location" class="location" placeholder="Standort">
+        <input type="text" id="location" class="location" placeholder="Location">
         <input type="text" id="api-endpoint" class="api-endpoint" placeholder="API-URL">
-        <button type="submit">Gerät hinzufügen</button>
+        <button type="submit">Add device</button>
     </form>
 
-    <!-- Suche & Geräteliste -->
-    <input type="text" id="search-input" class="search-input" placeholder="Suche nach Geräten...">
+    <!-- Search & device list -->
+    <input type="text" id="search-input" class="search-input" placeholder="Search for devices...">
     <div id="device-list" class="device-list"></div>
     <div id="pagination-controls" class="pagination-controls"></div>
 
