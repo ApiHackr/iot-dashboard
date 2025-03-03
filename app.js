@@ -30,6 +30,7 @@ function renderDevices() {
         device.location?.toLowerCase().includes(searchTerm)
     );
 
+    // Pagination
     const startIndex = (currentPage - 1) * DEVICES_PER_PAGE;
     const paginatedDevices = filteredDevices.slice(startIndex, startIndex + DEVICES_PER_PAGE);
 
