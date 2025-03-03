@@ -48,6 +48,7 @@ function renderDevices() {
     renderPaginationControls(filteredDevices.length);
 }
 
+// Pagination buttons
 function renderPaginationControls(totalDevices) {
     const totalPages = Math.ceil(totalDevices / DEVICES_PER_PAGE);
     let buttons = '';
