@@ -34,6 +34,7 @@ function renderDevices() {
     const startIndex = (currentPage - 1) * DEVICES_PER_PAGE;
     const paginatedDevices = filteredDevices.slice(startIndex, startIndex + DEVICES_PER_PAGE);
 
+    // Update UI
     document.getElementById("device-list").innerHTML = paginatedDevices.map(devices => `
         <div class="device-card">
             <h3>${device.id}</h3>
