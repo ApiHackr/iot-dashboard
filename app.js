@@ -63,7 +63,7 @@ function renderPaginationControls(totalDevices) {
     document.getElementById('pagination-controls').innerHTML = buttons;
 }
 
-// Gerät aktivieren/deaktivieren
+// Activate/deactivate device
 function toggleDevice(deviceId) {
     const devices = JSON.parse(localStorage.getItem('devices'));
     const device = devices.find(d => d.id === deviceId);
@@ -72,5 +72,5 @@ function toggleDevice(deviceId) {
     renderDevices();
 }
 
-// Initiale Darstellung
+// Initial view
 renderDevices();
