@@ -3,6 +3,7 @@
 let currentPage = 1;
 const DEVICES_PER_PAGE = 5;
 
+// Save device
 document.getElementById("device-form").addEventListener("submit", e => {
     e.preventDefault();
     const device = {
@@ -18,10 +19,12 @@ document.getElementById("device-form").addEventListener("submit", e => {
     renderDevices();
 });
 
+// render list of devices
 function renderDevices() {
     const allDevices = JSON.parse(localStorage.getItem("devices")) || [];
     const searchTerm = document.getElementById("search-input").value.toLowerCase();
 
+    // Filtering
     const filteredDevices = allDevices.filter(devices =>
         device.id.toLowerCase().includes(searchTerm) ||
         device.location?.toLowerCase().includes(searchTerm)
