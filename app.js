@@ -19,6 +19,12 @@ document.getElementById("device-form").addEventListener("submit", e => {
     renderDevices();
 });
 
+// search function
+document.getElementById('search-input').addEventListener('input', (e) => {
+    currentPage = 1; // Back to the first page for new search neuer Suche
+    renderDevices();
+});
+
 // render list of devices
 function renderDevices() {
     const allDevices = JSON.parse(localStorage.getItem("devices")) || [];
